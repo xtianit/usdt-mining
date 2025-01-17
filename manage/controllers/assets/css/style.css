@@ -1,0 +1,386 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} /* Navbar styles */
+
+body {
+    font-size: 15px;
+    font-family: "Signika Negative", Arial, sans-serif;
+}
+
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    overflow: hidden;
+}
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    padding: 0;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: transparent;
+}
+
+.navbar-scrolled {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.navbar ul {
+    list-style: none;
+    padding: 0;
+}
+.navbar ul li a:hover {
+    color: white;
+    background-color: #000000;
+}
+
+.logo {
+    font-weight: bold;
+    color: white;
+}
+
+.navbar-links {
+    display: flex;
+}
+
+.navbar-links ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links ul li > a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-links ul li {
+    margin: 0 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.navbar-links ul li:hover .dropdown-content {
+    display: block;
+}
+
+/* Hamburger styles */
+.hamburger {
+    display: none;
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.hero-title {
+    position: absolute;
+    top: 150px;
+    left: 40%;
+}
+
+.hamburger-icon span {
+    height: 2px;
+    width: 20px;
+    background-color: white;
+    margin-bottom: 4px;
+}
+.site-btn {
+    background-color: #04999f;
+    color: white;
+}
+.site-text {
+    color: #04999f;
+    text-decoration: none;
+}
+.btn-size {
+    width: 100px;
+}
+.list-none {
+    list-style: none;
+}
+.site-btn:hover {
+    background-color: #11d0d6;
+    color: white;
+    border: 1px solid #04999f;
+}
+
+/* Hidden side nav styles */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #f2f2f2;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Other styles */
+.right-section {
+    display: flex;
+    align-items: center;
+}
+
+.translator-widget {
+    margin-right: 10px;
+}
+
+.login-button,
+.register-button {
+    margin-left: 10px;
+}
+
+.video-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    height: 80vh;
+}
+.hero-header {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+}
+.hero-header h2 {
+    font-size: 5em;
+    color: white;
+}
+.hero-header p {
+    color: white;
+    font-size: 20px;
+}
+
+/* Style the video element to cover the container */
+.contact {
+    background-image: url("../images/site/Hero5.jpg");
+    height: 40vh;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.copy-bg {
+    height: 40vh;
+    opacity: 0.8;
+    background-image: url("../images/site/BgTrader.jpg");
+}
+.forex-bg {
+    height: 40vh;
+    opacity: 0.8;
+    background-image: url("../images/site/BgForex.jpg");
+}
+.crypto-bg {
+    height: 40vh;
+    opacity: 0.8;
+    background-image: url("../images/site/BgNumbers2.png");
+}
+.overlay1 {
+    position: absolute;
+    opacity: 0.7;
+    height: 40vh;
+    width: 100%;
+    font-weight: bold;
+    background: linear-gradient(rgba(3, 6, 126, 0.85), rgba(122, 0, 147, 0.85));
+    opacity: 0.8;
+}
+.contact h2 {
+    font-size: 5em;
+}
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .navbar-links {
+        display: none;
+    }
+    .contact h2 {
+        font-size: 3em;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .right-section {
+        justify-content: flex-end;
+    }
+    .hero-header {
+        top: 30%;
+        left: 0;
+    }
+    .hero-header h2 {
+        font-size: 30px;
+        text-align: center;
+        width: 100%;
+    }
+    .hero-header p {
+        text-align: center;
+        font-size: 20px;
+        width: 100%;
+    }
+    .video-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        height: 50vh;
+    }
+    .btn-size {
+        width: 100px;
+    }
+    .site-btn {
+        display: block;
+        margin: auto;
+        width: 200px;
+    }
+}
+
+.page-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f2f2f2;
+    z-index: 999;
+}
+
+.loader-spinner {
+    border: 4px solid #f3f3f3; /* Light gray */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+/* Keyframes for the spinner animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* CSS to hide the page content when the loader is shown */
+.hide-content {
+    visibility: hidden;
+}
+
+.my-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.error {
+    color: red;
+}
+
+#cover-spin {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 9999;
+    display: none;
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+#cover-spin::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 48%;
+    top: 40%;
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-color: black;
+    border-top-color: transparent;
+    border-width: 4px;
+    border-radius: 50%;
+    -webkit-animation: spin 0.8s linear infinite;
+    animation: spin 0.8s linear infinite;
+}

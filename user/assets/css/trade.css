@@ -1,0 +1,178 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100%;
+    height: 95vh;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1em;
+    padding: 1em;
+}
+
+main > div {
+    background-color: hsl(0, 0%, 10%);
+}
+
+main .symbol {
+    grid-column: 1/3;
+    grid-row: 1/4;
+    padding: 1em;
+}
+
+main .chart {
+    grid-column: 3/6;
+    grid-row: 1/4;
+}
+
+main .panel {
+    padding: 1em;
+    grid-row: 1/4;
+}
+
+main .chart .tradingview-widget-container {
+    width: 100%;
+    height: 100%;
+}
+
+.tradingview-widget-container__widget {
+    width: 100%;
+    height: 100%;
+}
+
+main .footer {
+    grid-column: 1/7;
+}
+.trade-status {
+    background-color: #0e0d0d;
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-top: 2em;
+    transition: 0.5s ease-out;
+}
+.trade-status:hover {
+    background-color: #252b3c;
+}
+@media screen and (max-width: 600px) {
+    main .symbol {
+        grid-column: 1/7;
+        grid-row: 1/2;
+    }
+    main .chart {
+        grid-column: 1/7;
+        grid-row: 2/7;
+    }
+    main .panel {
+        grid-column: 1/7;
+        grid-row: 7/9;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+/* User data grid page*/
+
+.user-home {
+    width: 100%;
+    min-height: 80vh;
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2em;
+    padding: 2em;
+    position: relative;
+}
+
+.user-home .gainers-data {
+    grid-column: 2/5;
+    grid-row: 1/6;
+}
+.user-home .footer-data {
+    grid-column: 1/6;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1em;
+    background-color: rgb(51, 49, 49);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 700px) {
+    .user-home > div:first-child {
+        grid-column: 1/6;
+        grid-row: 1/2;
+    }
+
+    .user-home > div:nth-child(2) {
+        grid-column: 1/6;
+        grid-row: 2/6;
+    }
+
+    .user-home .footer-data .pan-hide {
+        display: none;
+    }
+    .user-home .footer-data {
+        grid-column: 1/5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .user-home .footer-data a {
+        margin: 0 !important;
+    }
+}
+
+.user-home .footer-data a {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-decoration: none;
+    margin: 0 3em 0;
+}
+
+.lds-hourglass {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.lds-hourglass:after {
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    margin: 8px;
+    box-sizing: border-box;
+    border: 32px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-hourglass 1.2s infinite;
+}
+@keyframes lds-hourglass {
+    0% {
+        transform: rotate(0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    50% {
+        transform: rotate(900deg);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    100% {
+        transform: rotate(1800deg);
+    }
+}

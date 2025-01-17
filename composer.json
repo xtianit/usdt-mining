@@ -1,0 +1,8 @@
+{
+    "require": {
+        "jeffreyhyer/alpaca-trade-api-php": "^3.0",
+        "phpmailer/phpmailer": "^6.8",
+        "picqer/php-barcode-generator": "^2.2",
+        "vlucas/phpdotenv": "^5.5"
+    }
+}

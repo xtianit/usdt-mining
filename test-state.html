@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Country, State, and City Dropdown</title>
+    </head>
+    <body>
+        <h1>Country, State, and City Dropdown</h1>
+
+        <select id="country-select">
+            <option value="">Select Country</option>
+        </select>
+
+        <select id="state-select">
+            <option value="">Select State</option>
+        </select>
+
+        <select id="city-select">
+            <option value="">Select City</option>
+        </select>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                var countrySelect = $("#country-select");
+                var stateSelect = $("#state-select");
+                var citySelect = $("#city-select");
+
+                // Fetch country data from REST Countries API
+                $.ajax({
+                    url: "https://restcountries.com/v3.1/all",
+                    method: "GET",
+                    success: function (response) {
+                        var countries = response;
+
+                        // Populate the country select dropdown
+                        countries.forEach(function (country) {
+                            var option = $("<option></option>");
+                            option.val(country.name.common);
+                            option.text(country.name.common);
+                            countrySelect.append(option);
+                        });
+
+                        // Bind the change event of the country select
+                        countrySelect.change(function () {
+                            var selectedCountry = $(this).val();
+                            stateSelect.empty();
+                            citySelect.empty();
+                            stateSelect.append(
+                                '<option value="">Select State</option>'
+                            );
+                            citySelect.append(
+                                '<option value="">Select City</option>'
+                            );
+
+                            if (selectedCountry !== "") {
+                                var selectedCountryData = countries.find(
+                                    function (country) {
+                                        return (
+                                            country.name.common ===
+                                            selectedCountry
+                                        );
+                                    }
+                                );
+
+                                if (
+                                    selectedCountryData &&
+                                    selectedCountryData.divisions
+                                ) {
+                                    var states = selectedCountryData.divisions;
+                                    for (var stateCode in states) {
+                                        var stateName = states[stateCode];
+                                        var option = $("<option></option>");
+                                        option.val(stateCode);
+                                        option.text(stateName);
+                                        stateSelect.append(option);
+                                    }
+                                }
+                            }
+                        });
+
+                        // Bind the change event of the state select
+                        stateSelect.change(function () {
+                            var selectedStateCode = $(this).val();
+                            var selectedCountry = countrySelect.val();
+                            var selectedCountryData = countries.find(function (
+                                country
+                            ) {
+                                return country.name.common === selectedCountry;
+                            });
+
+                            if (
+                                selectedCountryData &&
+                                selectedCountryData.divisions &&
+                                selectedStateCode !== ""
+                            ) {
+                                var states = selectedCountryData.divisions;
+                                var selectedStateName =
+                                    states[selectedStateCode];
+                                var cities = selectedStateName.cities || [];
+
+                                citySelect.empty();
+                                citySelect.append(
+                                    '<option value="">Select City</option>'
+                                );
+
+                                cities.forEach(function (city) {
+                                    var option = $("<option></option>");
+                                    option.val(city);
+                                    option.text(city);
+                                    citySelect.append(option);
+                                });
+                            }
+                        });
+                    },
+                    error: function () {
+                        console.log("Failed to fetch country data.");
+                    },
+                });
+            });
+        </script>
+    </body>
+</html>
